@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/payment")
@@ -17,8 +18,8 @@ public class PaymentController {
     @Autowired
     MembershipTypeService membershipTypeService;
     @GetMapping
-    public ResponseEntity<List<MembershipType>> showAllMembershipsType() {
-        return ResponseEntity.status(200).body(membershipTypeService.getMembershipTypesList());
+    public ResponseEntity<Optional<List<MembershipType>>> showAllMembershipsType() {
+        return ResponseEntity.status(200).body(Optional.ofNullable(membershipTypeService.getMembershipTypesList()));
     }
 
 }
