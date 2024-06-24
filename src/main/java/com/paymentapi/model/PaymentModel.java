@@ -21,7 +21,7 @@ public class PaymentModel {
 
     private String cvc;
     private YearMonth cardExpirationDate;
-    private PaymentDto.PaymentStatusEnum status;
+    private PaymentStatusEnum status;
     private Double price;
 
 

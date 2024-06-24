@@ -28,7 +28,7 @@ public class PaymentService {
                     paymentDto.getCardNr(),
                     paymentDto.getCvc(),
                     paymentDto.getCardExpirationDate(),
-                    PaymentDto.PaymentStatusEnum.PAID,
+                    PaymentModel.PaymentStatusEnum.PAID,
                     membershipTypeExternal.getPrice()
             );
             System.out.println(paymentModel.toString());
