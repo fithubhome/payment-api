@@ -1,11 +1,10 @@
 package com.paymentapi.controller;
 
-import com.paymentapi.model.MembershipType;
 import com.paymentapi.model.PaymentModel;
 import com.paymentapi.model.external.MembershipTypeExternal;
 import com.paymentapi.model.external.PaymentDto;
 import com.paymentapi.service.MembershipTypeService;
-import com.paymentapi.service.external.PaymentService;
+import com.paymentapi.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,9 +1,8 @@
-package com.paymentapi.service.external;
+package com.paymentapi.service;
 
 import com.paymentapi.model.PaymentModel;
 import com.paymentapi.model.external.MembershipTypeExternal;
 import com.paymentapi.model.external.PaymentDto;
-import com.paymentapi.service.MembershipTypeService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

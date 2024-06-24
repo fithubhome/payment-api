@@ -17,6 +17,18 @@ public class PaymentModel {
     private UUID selectedMembershipId;
     private String personName;
 
+    private String cardNr;
+
+    private String cvc;
+    private YearMonth cardExpirationDate;
+    private PaymentDto.PaymentStatusEnum status;
+    private Double price;
+
+
+    public enum PaymentStatusEnum {
+        PENDING,
+        PAID;
+    }
     @Override
     public String toString() {
         return "PaymentModel{" +
@@ -29,16 +41,5 @@ public class PaymentModel {
                 ", status=" + status +
                 ", price=" + price +
                 '}';
-    }
-
-    private String cardNr;
-    private String cvc;
-    private YearMonth cardExpirationDate;
-    private PaymentDto.PaymentStatusEnum status;
-    private Double price;
-
-    public enum PaymentStatusEnum {
-        PENDING,
-        PAID
     }
 }
