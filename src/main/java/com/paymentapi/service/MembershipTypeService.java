@@ -17,36 +17,22 @@ import java.util.Optional;
 @Getter
 public class MembershipTypeService {
 
-    @Autowired
-    private MembershipTypeServiceClient membershipTypeServiceClient;
-    private List<MembershipType> membershipTypesList = new ArrayList<>();
+    private List<MembershipTypeExternal> membershipTypesList = new ArrayList<>();
 
     public MembershipTypeService(MembershipTypeServiceClient membershipTypeServiceClient) {
-        this.membershipTypeServiceClient = membershipTypeServiceClient;
 
         Optional<MembershipTypeExternal[]> optionalMembershipTypes = membershipTypeServiceClient.requestMembershipTypesExternal();
 
         if (optionalMembershipTypes.isPresent()) {
             Arrays.stream(optionalMembershipTypes.get()).forEach(
                     mbTypeExt -> membershipTypesList.add(
-                            new MembershipType(
-                                    mbTypeExt.getId(),
-                                    mbTypeExt.getName(),
-                                    mbTypeExt.getPrice(),
-                                    LocalDate.now(),
-                                    LocalDate.now().plusDays(30)
-                            )
-                    )
-            );
+                           mbTypeExt));
         } else {
             membershipTypesList.add(
-                    new MembershipType(
+                    new MembershipTypeExternal(
                             null,
                             "This is an ERROR",
-                            null,
-                            null,
-                            null
-                    ));
+                            null));
             System.out.println("No membership types available.");
             // Add logger issue here
         }
