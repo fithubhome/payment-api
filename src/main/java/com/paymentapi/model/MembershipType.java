@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Getter
@@ -13,7 +14,7 @@ import java.util.Date;
 
 public class MembershipType {
 
-    private Integer id;
+    private UUID id;
     private String name;
     private Double price;
     private LocalDate startDate;
