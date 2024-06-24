@@ -16,6 +16,21 @@ public class PaymentModel {
     private UUID profileID;
     private UUID selectedMembershipId;
     private String personName;
+
+    @Override
+    public String toString() {
+        return "PaymentModel{" +
+                "profileID=" + profileID +
+                ", selectedMembershipId=" + selectedMembershipId +
+                ", personName='" + personName + '\'' +
+                ", cardNr='" + cardNr + '\'' +
+                ", cvc='" + cvc + '\'' +
+                ", cardExpirationDate=" + cardExpirationDate +
+                ", status=" + status +
+                ", price=" + price +
+                '}';
+    }
+
     private String cardNr;
     private String cvc;
     private YearMonth cardExpirationDate;

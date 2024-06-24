@@ -32,6 +32,7 @@ public class PaymentService {
                     PaymentDto.PaymentStatusEnum.PAID,
                     membershipTypeExternal.getPrice()
             );
+            System.out.println(paymentModel.toString());
             return paymentModel;
         }
 
