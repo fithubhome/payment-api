@@ -3,6 +3,7 @@ package com.paymentapi.service;
 import com.paymentapi.model.PaymentModel;
 import com.paymentapi.model.external.MembershipTypeExternal;
 import com.paymentapi.model.external.PaymentDto;
+import com.paymentapi.service.external.MembersipApiResponse;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class PaymentService {
 
     @Autowired
     MembershipTypeService membershipTypeService;
+    @Autowired
+    MembersipApiResponse membersipApiResponse;
 
     public PaymentModel validatePayment(PaymentDto paymentDto) {
         MembershipTypeExternal membershipTypeExternal = membershipTypeService.getMembershipTypesList().stream().filter(mbType -> mbType.getId().equals(paymentDto.getSelectedMembershipId())).findFirst().orElse(new MembershipTypeExternal(null, null, null));
@@ -29,13 +32,17 @@ public class PaymentService {
                     paymentDto.getCvc(),
                     paymentDto.getCardExpirationDate(),
                     PaymentModel.PaymentStatusEnum.PAID,
-                    membershipTypeExternal.getPrice()
+                    membershipTypeExternal.getPrice(),
+                    membershipTypeExternal.getName()
             );
             System.out.println(paymentModel.toString());
+            membersipApiResponse.postRequest(paymentModel);
             return paymentModel;
         }
 
-        return new PaymentModel(null, null, null, null, null, null, null, null);
+        PaymentModel paymentModel = new PaymentModel(null, null, null, null, null, null, null, null,null);
+        membersipApiResponse.postRequest(paymentModel);
+        return paymentModel;
     }
 
 

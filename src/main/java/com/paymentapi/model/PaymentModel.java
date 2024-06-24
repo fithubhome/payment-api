@@ -15,20 +15,17 @@ import java.util.UUID;
 public class PaymentModel {
     private UUID profileID;
     private UUID selectedMembershipId;
+
     private String personName;
 
     private String cardNr;
 
     private String cvc;
+
     private YearMonth cardExpirationDate;
     private PaymentStatusEnum status;
     private Double price;
-
-
-    public enum PaymentStatusEnum {
-        PENDING,
-        PAID;
-    }
+    private String membershipName;
     @Override
     public String toString() {
         return "PaymentModel{" +
@@ -40,6 +37,14 @@ public class PaymentModel {
                 ", cardExpirationDate=" + cardExpirationDate +
                 ", status=" + status +
                 ", price=" + price +
+                ", membershipName='" + membershipName + '\'' +
                 '}';
     }
+
+
+    public enum PaymentStatusEnum {
+        PENDING,
+        PAID;
+    }
+
 }
