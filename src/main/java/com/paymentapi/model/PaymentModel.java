@@ -1,6 +1,5 @@
 package com.paymentapi.model;
 
-import com.paymentapi.model.external.PaymentDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,16 +14,12 @@ import java.util.UUID;
 public class PaymentModel {
     private UUID profileID;
     private UUID selectedMembershipId;
-
     private String personName;
-
     private String cardNr;
-
     private String cvc;
-
     private YearMonth cardExpirationDate;
     private PaymentStatusEnum status;
-    private Double price;
+    private Double price; // This is the extra field compared to PaymentDto
     private String membershipName;
     @Override
     public String toString() {

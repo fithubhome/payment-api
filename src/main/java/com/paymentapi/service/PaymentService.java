@@ -1,8 +1,8 @@
 package com.paymentapi.service;
 
 import com.paymentapi.model.PaymentModel;
-import com.paymentapi.model.external.MembershipTypeExternal;
-import com.paymentapi.model.external.PaymentDto;
+import com.paymentapi.model.external.membershipapi.MembershipTypeExternal;
+import com.paymentapi.model.external.paymentapi.PaymentDto;
 import com.paymentapi.service.external.membershipapi.post.MembershipHistoryResponse;
 import lombok.Getter;
 import lombok.Setter;

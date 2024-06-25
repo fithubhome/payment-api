@@ -1,4 +1,4 @@
-package com.paymentapi.model.external;
+package com.paymentapi.model.external.paymentapi;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
