@@ -4,7 +4,6 @@ import com.paymentapi.model.external.gymwebappapi.post.PaymentStatusResponse;
 import com.paymentapi.model.external.membershipapi.post.PaymentModel;
 import com.paymentapi.model.external.membershipapi.get.MembershipTypeExternal;
 import com.paymentapi.model.external.paymentapi.get.PaymentDto;
-import com.paymentapi.service.external.gymwebappapi.post.GymWebAppApiResponse;
 import com.paymentapi.service.external.membershipapi.post.MembershipHistoryResponse;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +21,7 @@ public class PaymentService {
     MembershipTypeService membershipTypeService;
     @Autowired
     MembershipHistoryResponse membershipHistoryResponse;
-    @Autowired
-    GymWebAppApiResponse gymWebAppApiResponse;
+
 
     public String validatePaymentAndReturnPage(PaymentDto paymentDto) {
         MembershipTypeExternal membershipTypeExternal = membershipTypeService.getMembershipTypesList().stream().filter(mbType -> mbType.getId().equals(paymentDto.getSelectedMembershipId())).findFirst().orElse(new MembershipTypeExternal(null, null, null));
