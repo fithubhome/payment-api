@@ -1,4 +1,4 @@
-package com.paymentapi.service.external;
+package com.paymentapi.service.external.membershipapi.get;
 
 import com.paymentapi.model.external.MembershipTypeExternal;
 import lombok.Getter;

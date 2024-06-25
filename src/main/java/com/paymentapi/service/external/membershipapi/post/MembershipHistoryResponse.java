@@ -1,12 +1,11 @@
-package com.paymentapi.service.external;
+package com.paymentapi.service.external.membershipapi.post;
 
 import com.paymentapi.model.PaymentModel;
-import com.paymentapi.model.external.PaymentDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
-public class MembersipApiResponse {
+public class MembershipHistoryResponse {
 
     private static final String BASE_URL = "http://localhost:8105";
     private static final String BASE_URI = "/addpayment";
