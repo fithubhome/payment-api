@@ -1,6 +1,6 @@
 package com.paymentapi.service.external.membershipapi.get;
 
-import com.paymentapi.model.external.membershipapi.MembershipTypeExternal;
+import com.paymentapi.model.external.membershipapi.get.MembershipTypeExternal;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

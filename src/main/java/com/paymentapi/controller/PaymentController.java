@@ -1,8 +1,7 @@
 package com.paymentapi.controller;
 
-import com.paymentapi.model.PaymentModel;
-import com.paymentapi.model.external.membershipapi.MembershipTypeExternal;
-import com.paymentapi.model.external.paymentapi.PaymentDto;
+import com.paymentapi.model.external.membershipapi.get.MembershipTypeExternal;
+import com.paymentapi.model.external.paymentapi.get.PaymentDto;
 import com.paymentapi.service.MembershipTypeService;
 import com.paymentapi.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,13 @@ public class PaymentController {
     }
 
     @PostMapping
-    public ResponseEntity<PaymentModel> validatePayment(@RequestBody PaymentDto paymentDto) {
-        return ResponseEntity.status(200).body(paymentService.validatePayment(paymentDto));
+    public ResponseEntity<String> validatePayment(@RequestBody PaymentDto paymentDto) {
+        String result = paymentService.validatePaymentAndReturnPage(paymentDto);
+        if ("PAID".equals(result)) {
+            return ResponseEntity.status(200).body(result);
+        } else {
+            return ResponseEntity.status(400).body(result);
+        }
     }
 
 }

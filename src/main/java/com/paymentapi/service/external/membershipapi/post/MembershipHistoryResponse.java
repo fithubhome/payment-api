@@ -1,6 +1,6 @@
 package com.paymentapi.service.external.membershipapi.post;
 
-import com.paymentapi.model.PaymentModel;
+import com.paymentapi.model.external.membershipapi.post.PaymentModel;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

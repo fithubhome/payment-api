@@ -1,4 +1,4 @@
-package com.paymentapi.model.external.membershipapi;
+package com.paymentapi.model.external.membershipapi.get;
 
 
 import lombok.AllArgsConstructor;
