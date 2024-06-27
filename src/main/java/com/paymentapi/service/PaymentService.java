@@ -4,6 +4,7 @@ import com.paymentapi.model.external.gymwebappapi.post.PaymentStatusResponse;
 import com.paymentapi.model.external.membershipapi.post.PaymentModel;
 import com.paymentapi.model.external.membershipapi.get.MembershipTypeExternal;
 import com.paymentapi.model.external.paymentapi.get.PaymentDto;
+import com.paymentapi.service.external.membershipapi.get.MembershipTypeServiceClient;
 import com.paymentapi.service.external.membershipapi.post.MembershipHistoryResponse;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,10 +22,12 @@ public class PaymentService {
     MembershipTypeService membershipTypeService;
     @Autowired
     MembershipHistoryResponse membershipHistoryResponse;
+    @Autowired
+    MembershipTypeServiceClient membershipTypeServiceClient; // this should be tackled diffrenttly is MembershipTypeService(membershipTypeServiceClient) based on getMembershipTypesList()
 
 
     public String validatePaymentAndReturnPage(PaymentDto paymentDto) {
-        MembershipTypeExternal membershipTypeExternal = membershipTypeService.getMembershipTypesList().stream().filter(mbType -> mbType.getId().equals(paymentDto.getSelectedMembershipId())).findFirst().orElse(new MembershipTypeExternal(null, null, null));
+        MembershipTypeExternal membershipTypeExternal = new  MembershipTypeService(membershipTypeServiceClient).getMembershipTypesList().stream().filter(mbType -> mbType.getId().equals(paymentDto.getSelectedMembershipId())).findFirst().orElse(new MembershipTypeExternal(null, null, null));
         if (membershipTypeExternal.getPrice() != null) {
             PaymentModel paymentModel = new PaymentModel(
                     paymentDto.getProfileID(),
