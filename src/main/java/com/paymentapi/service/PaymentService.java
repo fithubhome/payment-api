@@ -32,10 +32,10 @@ public class PaymentService {
             PaymentModel paymentModel = new PaymentModel(
                     paymentDto.getProfileID(),
                     paymentDto.getSelectedMembershipId(),
-                    paymentDto.getPersonName(),
-                    paymentDto.getCardNr(),
-                    paymentDto.getCvc(),
-                    paymentDto.getCardExpirationDate(),
+//                    paymentDto.getPersonName(),
+//                    paymentDto.getCardNr(),
+//                    paymentDto.getCvc(),
+//                    paymentDto.getCardExpirationDate(),
                     PaymentModel.PaymentStatusEnum.PAID,
                     membershipTypeExternal.getPrice(),
                     membershipTypeExternal.getName()
@@ -49,7 +49,7 @@ public class PaymentService {
 
         }
 
-        PaymentModel paymentModel = new PaymentModel(null, null, null, null, null, null, null, null,null);
+        PaymentModel paymentModel = new PaymentModel(null, null, null, null,null);
         membershipHistoryResponse.postRequest(paymentModel);
         return "ERROR";
 //        return paymentModel;

@@ -14,22 +14,22 @@ import java.util.UUID;
 public class PaymentModel {
     private UUID profileID;
     private UUID selectedMembershipId;
-    private String personName;
-    private String cardNr;
-    private String cvc;
-    private YearMonth cardExpirationDate;
+//    private String personName;
+//    private String cardNr;
+//    private String cvc;
+//    private YearMonth cardExpirationDate;
     private PaymentStatusEnum status;
-    private Double price; // This is the extra field compared to PaymentDto
+    private Double price;
     private String membershipName;
     @Override
     public String toString() {
         return "PaymentModel{" +
                 "profileID=" + profileID +
                 ", selectedMembershipId=" + selectedMembershipId +
-                ", personName='" + personName + '\'' +
-                ", cardNr='" + cardNr + '\'' +
-                ", cvc='" + cvc + '\'' +
-                ", cardExpirationDate=" + cardExpirationDate +
+//                ", personName='" + personName + '\'' +
+//                ", cardNr='" + cardNr + '\'' +
+//                ", cvc='" + cvc + '\'' +
+//                ", cardExpirationDate=" + cardExpirationDate +
                 ", status=" + status +
                 ", price=" + price +
                 ", membershipName='" + membershipName + '\'' +
